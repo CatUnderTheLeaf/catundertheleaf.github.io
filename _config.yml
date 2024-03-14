@@ -2,7 +2,6 @@ title: The ordeal of being a Software Engineer after a career break
 author:
   name: CatUnderTheLeaf
   email: catundertheleaf@gmail.com
-github_username: CatUnderTheLeaf
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
@@ -15,6 +14,11 @@ description: >
 
 # Build settings
 
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-remote-theme
+
 # If you clone the Minima repo and build locally, use this setting.
 # theme: minima
 
@@ -22,11 +26,6 @@ description: >
 # If you want to use the latest Minima version on GitHub Pages, use the following setting and 
 # add a line comment on "theme: minima" above.
 remote_theme: jekyll/minima
-
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-remote-theme
 
 # Theme-specific settings
 
