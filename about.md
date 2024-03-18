@@ -4,15 +4,10 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Life happens and sometimes you make a career break. The length varies from couple of month to couple of years. 
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Software development doesn't stay the same, it changes with drastic speed. So you need to be like the Red Queen from _"Alice Through the Looking-Glass"_ and keep running just to keep the position.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+During my career break I understood that I don't want to continue working in __Front-end Development__. Instead I became more interested in __Computer Vision__, __Robotics__ and __Autonomous Vehicles__.
 
-
-[jekyll-organization]: https://github.com/jekyll
+As expected, getting back into software development after some time away is a big challenge, especially considering my change of interests. Nevertheless I will try my best.
