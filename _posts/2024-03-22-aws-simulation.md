@@ -34,3 +34,28 @@ As can be seen the last configuration is the right option to simulate and train 
 > The reasons why they chose to update to ROS2 Foxy Fitzroy which has reached its EOL are unclear. There are still ROS1 Noetic (EOL May, 2025) and stable and supported distros of ROS2 (Humble and Iron).
 
 > The ROS version should not affect training and using RL model as it has only four velocity and two steering values as inputs. And you can pass it using whichever ROS version you want.
+
+### Installation
+
+0. Windows users
+   - You will need to be on Windows 11 Build 22000 or later.
+   - Install driver for vGPU to run Linux GUI apps
+      * [Intel GPU driver for WSL](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-10-windows-11-dch-drivers.html)
+      * [AMD GPU driver for WSL](https://www.amd.com/en/support/kb/release-notes/rn-rad-win-wsl-support)
+      * [NVIDIA GPU driver for WSL](https://developer.nvidia.com/cuda/wsl)
+   - Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install). Open `Microsoft Store` and install Ubuntu 20.04.
+   - Run Ubuntu 20.04
+1. Install [ROS1 Noetic](http://wiki.ros.org/noetic/Installation)
+2. Update/Install Git and Python3
+```
+# Install Git and Python3 if not installed
+apt-get update && apt-get install -y git python3-pip
+```
+3. Install [Gazebo](https://classic.gazebosim.org/tutorials?tut=install_ubuntu&cat=install) for simulation
+4. Install [gazebo-ros-pkgs and gazebo-ros-control](https://classic.gazebosim.org/tutorials?tut=ros_installing)
+5. Source ROS1
+```
+# or just add it to ~/.bashrc with
+# echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+source /opt/ros/noetic/setup.bash
+```
