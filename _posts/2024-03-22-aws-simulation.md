@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to make an AWS DeepRacer car simulation and control it with ROS1"
+title: "How to make an AWS DeepRacer car simulation and control it with ROS1: 1. Setup"
 categories: aws
 ---
 
@@ -15,7 +15,7 @@ But... only 10 hours free for 30 days with the AWS Free Tier... Maybe there is s
 
 > [deepracer-for-cloud](https://aws-deepracer-community.github.io/deepracer-for-cloud/) provides a quick and easy way to get up and running with a DeepRacer training environment in AWS or Azure, using either the Azure N-Series Virtual Machines or AWS EC2 Accelerated Computing instances, or locally on your own desktop or server.
 
-That is a good option: train your car locally for any number of hours and then just upload the model. What else can be done?
+That is a good option: train your car locally for any number of hours and then just upload the model.
 
 But what if you want to gain more control of your car? Or you want to somehow incorporate `Behavioral cloning` and train your car with manual steering and velocity inputs in hope that it will have a better performance than with random inputs of RL? Or you just want to simply simulate a car, race track and play with it?
 
