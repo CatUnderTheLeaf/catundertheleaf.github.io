@@ -11,7 +11,7 @@ Backup your telegram channel using GitHub actions
 Simulation for an AWS DeepRacer car
   <ul>
     {% for post in site.categories["aws"] %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
     {% endfor %}
   </ul>
 
