@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to make an AWS DeepRacer car simulation and control it with ROS1"
+title: "AWS DeepRacer simulation. Part 1 - Setup"
 subtitle: "Part 1 - Setup"
 categories: aws
 ---
