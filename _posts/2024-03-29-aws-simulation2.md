@@ -46,7 +46,7 @@ Gazebo in ROS has 2 nodes: `gzserver` and `gzclient`. As you remember in ROS to 
 I prefer `launch` files. They make running ROS code so much easier. Go to `deep_ws/src/simulation` folder and make `launch` directory, in which create a file `gazebo.launch`. This example code launches two Gazebo nodes with the `world` argument, which now leads to empty world:
 
 {% highlight xml %}
-<!-- gazebo.launch -->
+<!-- deep_ws/src/simulation/launch/gazebo.launch -->
 <?xml version="1.0"?>
 <launch>
   <arg name="world_name" default="worlds/empty.world"/>
@@ -69,7 +69,7 @@ $ roslaunch simulation gazebo.launch
 That was not so difficult. Now lets load a race track world. For this task you need folders `meshes`, `models`, `worlds` and `routes` from [deepracer_simapp](https://github.com/aws-deepracer-community/deepracer-simapp/tree/master/bundle). Download them all to `deep_ws/src/simulation` and create a `simulation.launch` file in `deep_ws/src/simulation/launch` folder. This launch file will include previous `gazebo.launch` and will pass a `world` argument.
 
 {% highlight xml %}
-<!-- simulation.launch -->
+<!-- deep_ws/src/simulation/launch/simulation.launch -->
 <?xml version="1.0"?>
 <launch>
   <arg name="world_name" default="$(find simulation)/worlds/2022_march_pro.world"/>
@@ -79,7 +79,10 @@ That was not so difficult. Now lets load a race track world. For this task you n
 </launch>
 {% endhighlight %}
 
-Similarly run it with `roslaunch simulation simulation.launch` from `deep_ws` folder.
+Similarly run it from `deep_ws` folder with 
+{% highlight shell %}
+$ roslaunch simulation simulation.launch
+{% endhighlight %}
 
 But.... wait. There is a warning:
 

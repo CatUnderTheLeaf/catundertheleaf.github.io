@@ -48,15 +48,15 @@ As can be seen the last configuration is the right option to simulate and train 
    - Run Ubuntu 20.04
 1. Install [ROS1 Noetic](http://wiki.ros.org/noetic/Installation)
 2. Update/Install Git and Python3
-```
+{% highlight shell %}
 # Install Git and Python3 if not installed
-apt-get update && apt-get install -y git python3-pip
-```
+$ apt-get update && apt-get install -y git python3-pip
+{% endhighlight %}
 3. Install [Gazebo](https://classic.gazebosim.org/tutorials?tut=install_ubuntu&cat=install) for simulation
 4. Install [gazebo-ros-pkgs and gazebo-ros-control](https://classic.gazebosim.org/tutorials?tut=ros_installing)
 5. Source ROS1
-```
+{% highlight shell %}
 # or just add it to ~/.bashrc with
 # echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-source /opt/ros/noetic/setup.bash
-```
+$ source /opt/ros/noetic/setup.bash
+{% endhighlight %}
