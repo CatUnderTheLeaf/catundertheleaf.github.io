@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "AWS DeepRacer simulation. Part 3 - Car model and control"
-subtitle: "Part 2 - Car model and control"
+title: "AWS DeepRacer simulation. Part 3 - Car model"
+subtitle: "Part 3 - Car model"
 categories: aws
 ---
 
@@ -99,5 +99,5 @@ Now run
 {% highlight shell %}
 $ roslaunch simulation simulation.launch
 {% endhighlight %}
-and you will see a car on a race track
+and you will see a car on a race track, now we have a car model and need to somehow control it. 
 ![car model in world](/assets/car_track.png)
