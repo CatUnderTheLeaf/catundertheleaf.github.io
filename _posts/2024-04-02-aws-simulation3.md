@@ -4,6 +4,23 @@ title: "AWS DeepRacer simulation. Part 3 - Car model"
 subtitle: "Part 3 - Car model"
 categories: aws
 ---
+## Roadmap
+{% assign posts = site.categories["aws"] | sort %}
+<ul>
+    {% for post in posts %}
+      {% if post.subtitle==page.subtitle%}
+      {% assign next_post = post.next %}
+         <li>{{ post.subtitle }}
+            <ul>
+               <li><a href="#create-a-car-model">Create a car model</a></li>
+               <li><a href="#load-car-model-to-gazebo-simulation">Load car model to Gazebo simulation</a></li>
+            </ul>
+         </li>
+      {% else %}
+         <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
+      {% endif %}
+    {% endfor %}
+</ul>
 
 ## Create a car model
 
@@ -101,3 +118,5 @@ $ roslaunch simulation simulation.launch
 {% endhighlight %}
 and you will see a car on a race track, now we have a car model and need to somehow control it. 
 ![car model in world](/assets/car_track.png)
+
+<a href="{{next_post.url | escape}}">Next: {{ next_post.subtitle }}</a>

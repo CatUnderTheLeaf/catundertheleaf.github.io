@@ -9,11 +9,12 @@ Backup your telegram channel using GitHub actions
 
 ### [deepRacerSim](https://github.com/CatUnderTheLeaf/deepRacerSim)
 Simulation for an AWS DeepRacer car
-  <ul>
-    {% for post in site.categories["aws"] %}
-      <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
+{% assign posts = site.categories["aws"] | sort %}
+<ul>
+    {% for post in posts %}      
+         <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
     {% endfor %}
-  </ul>
+</ul>
 
 ### [rosRoboCar](https://github.com/CatUnderTheLeaf/rosRoboCar)
 Self-driving car for the "Autonomous Driving Competition"

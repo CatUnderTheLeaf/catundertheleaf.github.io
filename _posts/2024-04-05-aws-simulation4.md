@@ -4,6 +4,23 @@ title: "AWS DeepRacer simulation. Part 4 - Car control"
 subtitle: "Part 4 - Car control"
 categories: aws
 ---
+## Roadmap
+{% assign posts = site.categories["aws"] | sort %}
+<ul>
+    {% for post in posts %}
+      {% if post.subtitle==page.subtitle%}
+      {% assign next_post = post.next %}
+         <li>{{ post.subtitle }}
+            <ul>
+               <li><a href="#controllers">Controllers</a></li>
+               <li><a href="#add-car-control-step-by-step-with-ros_controls">Add car control step by step with ros_controls</a></li>
+            </ul>
+         </li>
+      {% else %}
+         <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
+      {% endif %}
+    {% endfor %}
+</ul>
 
 ## Controllers
 
@@ -89,22 +106,18 @@ joint_state_controller:
 
 # add four wheel controllers
 left_rear_wheel_velocity_controller:
-  # joints:
-  #   - left_rear_wheel_joint
   type: velocity_controllers/JointVelocityController
   joint: left_rear_wheel_joint
   pid: {p: 1.0, i: 0.0, d: 0.0, i_clamp: 0.0}
 
 # add two steering controllers
 right_steering_hinge_position_controller:
-  # joints:
-  #   - right_steering_hinge_joint
   type: position_controllers/JointPositionController
   joint: right_steering_hinge_joint
   pid: {p: 1.0, i: 0.0, d: 0.5}
 {% endhighlight %}
 
-Also add pid gains for gazebo_ros_control in that same config file
+Also add [PID](https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller) gains for gazebo_ros_control in that same config file
 {% highlight yaml %}
 gazebo_ros_control/pid_gains:
   left_rear_wheel_joint: {p: 0.1, i: 0.0, d: 0.0, i_clamp: 0.0}
@@ -156,7 +169,7 @@ So far, so good. But do we really need to send 6 commands to control a car?
 
 ## Control node
 
-Lets add a node for more convinient control. Create a `control_deepracer_car.py` in `deep_ws/src/deepracer_car/scripts` folder. Make a `CarController`  with six command publishers and one `AckermannDriveStamped` subscriber
+Lets add a node for more convinient control. Create a `control_deepracer_car.py` in a `deep_ws/src/deepracer_car/scripts` folder. Make a `CarController`  with six command publishers and one `AckermannDriveStamped` subscriber
 {% highlight python %}
 #!/usr/bin/env python3
 import rospy
@@ -223,7 +236,7 @@ Subscriber will update current speed and angle from `ackermann_cmd` topic
             self.steering_angle_velocity = msg.drive.steering_angle_velocity
 {% endhighlight %}
 
-Control will spin with a set rate
+Control will spin the node with a set rate
 {% highlight python %}
     def control(self):
         rate = rospy.Rate(self.update_rate) 
@@ -245,7 +258,7 @@ Control will spin with a set rate
             rate.sleep()
 {% endhighlight %}
 
-Will calculate target speed and steering, ignore numbers out of bounds stabilize a stopped car
+will also calculate target speed and steering, ignore numbers out of bounds stabilize a stopped car
 {% highlight python %}
     def calc_target_speed_steering(self, delta_t):
         
@@ -270,7 +283,7 @@ Will calculate target speed and steering, ignore numbers out of bounds stabilize
         return t_speed, t_left_steering, t_right_steering
 {% endhighlight %}
     
-And will finally publish wheel and steering commands to the corresponding command topics
+and will finally publish wheel and steering commands to the corresponding command topics
 {% highlight python %}
     def publish_commands(self, t_speed, t_left_steering, t_right_steering):
         '''Publishes the given action to all the topics in the given dicts
@@ -285,4 +298,6 @@ And will finally publish wheel and steering commands to the corresponding comman
 
         self._steering_pub_dict_['left'].publish(t_left_steering)
         self._steering_pub_dict_['right'].publish(t_right_steering)
-{% endhighlight %}        
+{% endhighlight %}
+
+<a href="{{next_post.url | escape}}">Next: {{ next_post.subtitle }}</a>

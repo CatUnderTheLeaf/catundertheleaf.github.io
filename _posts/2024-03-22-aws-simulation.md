@@ -4,6 +4,25 @@ title: "AWS DeepRacer simulation. Part 1 - Setup"
 subtitle: "Part 1 - Setup"
 categories: aws
 ---
+## Roadmap
+{% assign posts = site.categories["aws"] | sort %}
+<ul>
+    {% for post in posts %}
+      {% if post.subtitle==page.subtitle%}
+      {% assign next_post = post.next %}
+         <li>{{ post.subtitle }}
+            <ul>
+               <li><a href="#introduction">Introduction</a></li>
+               <li><a href="#finished-simulation">Finished simulation</a></li>
+               <li><a href="#software-setup">Software setup</a></li>
+               <li><a href="#installation">Installation</a></li>
+            </ul>
+         </li>
+      {% else %}
+         <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
+      {% endif %}
+    {% endfor %}
+</ul>
 
 ## Introduction
 
@@ -20,7 +39,49 @@ That is a good option: train your car locally for any number of hours and then j
 
 But what if you want to gain more control of your car? Or you want to somehow incorporate `Behavioral cloning` and train your car with manual steering and velocity inputs in hope that it will have a better performance than with random inputs of RL? Or you just want to simply simulate a car, race track and play with it?
 
-## Software setup and installation
+## Finished simulation
+
+If you want just to run the simulation you can clone my repository and run it with Docker.
+{% highlight shell %}
+# Download this repository
+$ git clone https://github.com/CatUnderTheLeaf/deepRacerSim.git
+
+# change dir to this repository
+$ cd deepRacerSim
+
+# Build docker image with
+$ docker build -f deepRacerSim.Dockerfile -t deep-simulator .
+
+# change directory
+$ cd deepRacerSim/deep_ws
+
+# launch a Docker container
+$ ./launch_docker.sh
+
+# launch simulation
+$ roslaunch simulation simulation.launch
+{% endhighlight %}
+
+To control a car in launch another terminal
+{% highlight shell %}
+# change directory
+$ cd deepRacerSim/deep_ws
+
+# launch a Docker container
+$ ./launch_docker.sh
+
+# launch keyboard teleoperation
+$ roslaunch teleop_ackermann key_teleop.launch
+
+# or launch joy teleoperation
+$ roslaunch teleop_ackermann joy_teleop.launch
+{% endhighlight %}
+
+If you don't want to use Docker, then read instructions on [GitHub](https://github.com/CatUnderTheLeaf/deepRacerSim).
+
+But if you want to make it from scratch - continue reading. 
+
+## Software setup
 
 It turned out there are three possible software configurations:
 
@@ -36,9 +97,9 @@ As can be seen the last configuration is the right option to simulate and train 
 
 > The ROS version should not affect training and using RL model as it has only four velocity and two steering values as inputs. And you can pass it using whichever ROS version you want.
 
-### Installation
+## Installation
 
-0. Windows users
+- Windows users
    - You will need to be on Windows 11 Build 22000 or later.
    - Install driver for vGPU to run Linux GUI apps
       * [Intel GPU driver for WSL](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-10-windows-11-dch-drivers.html)
@@ -46,17 +107,19 @@ As can be seen the last configuration is the right option to simulate and train 
       * [NVIDIA GPU driver for WSL](https://developer.nvidia.com/cuda/wsl)
    - Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install). Open `Microsoft Store` and install Ubuntu 20.04.
    - Run Ubuntu 20.04
-1. Install [ROS1 Noetic](http://wiki.ros.org/noetic/Installation)
-2. Update/Install Git and Python3
+- Install [ROS1 Noetic](http://wiki.ros.org/noetic/Installation)
+- Update/Install Git and Python3
 {% highlight shell %}
 # Install Git and Python3 if not installed
 $ apt-get update && apt-get install -y git python3-pip
 {% endhighlight %}
-3. Install [Gazebo](https://classic.gazebosim.org/tutorials?tut=install_ubuntu&cat=install) for simulation
-4. Install [gazebo-ros-pkgs and gazebo-ros-control](https://classic.gazebosim.org/tutorials?tut=ros_installing)
-5. Source ROS1
+- Install [Gazebo](https://classic.gazebosim.org/tutorials?tut=install_ubuntu&cat=install) for simulation
+- Install [gazebo-ros-pkgs and gazebo-ros-control](https://classic.gazebosim.org/tutorials?tut=ros_installing)
+- Source ROS1
 {% highlight shell %}
 # or just add it to ~/.bashrc with
 # echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 $ source /opt/ros/noetic/setup.bash
 {% endhighlight %}
+
+<a href="{{next_post.url | escape}}">Next: {{ next_post.subtitle }}</a>

@@ -4,6 +4,24 @@ title: "AWS DeepRacer simulation. Part 2 - Launch race track in Gazebo"
 subtitle: "Part 2 - Launch race track in Gazebo"
 categories: aws
 ---
+## Roadmap
+{% assign posts = site.categories["aws"] | sort %}
+<ul>
+    {% for post in posts %}
+      {% if post.subtitle==page.subtitle%}
+      {% assign next_post = post.next %}
+         <li>{{ post.subtitle }}
+            <ul>
+               <li><a href="#quick-overview-of-ros1-concepts">Quick Overview of ROS1 concepts</a></li>
+               <li><a href="#launch-gazebo-using-ros">Launch Gazebo using ROS</a></li>
+               <li><a href="#load-a-race-track-world">Load a race track world</a></li>
+            </ul>
+         </li>
+      {% else %}
+         <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
+      {% endif %}
+    {% endfor %}
+</ul>
 
 ## Quick Overview of ROS1 concepts
 
@@ -29,7 +47,7 @@ Create a package with name `simulation`. Here we will gather all code for launch
 
 {% highlight shell %}
 $ cd ~/deep_ws/src
-# create package with name ‘simulation’ and dependency on ‘gazebo_ros’
+# create package with name 'simulation' and dependency on 'gazebo_ros'
 $ catkin_create_pkg simulation gazebo_ros
 $ cd ../
 $ catkin_make
@@ -66,7 +84,11 @@ $ roslaunch simulation gazebo.launch
 
 ![empty world](/assets/empty_world.png)
 
-That was not so difficult. Now lets load a race track world. For this task you need folders `meshes`, `models`, `worlds` and `routes` from [deepracer_simapp](https://github.com/aws-deepracer-community/deepracer-simapp/tree/master/bundle). Download them all to `deep_ws/src/simulation` and create a `simulation.launch` file in `deep_ws/src/simulation/launch` folder. This launch file will include previous `gazebo.launch` and will pass a `world` argument.
+That was not so difficult. Now lets load a race track world. 
+
+##  Load a race track world
+
+For this task you need folders `meshes`, `models`, `worlds` and `routes` from [deepracer_simapp](https://github.com/aws-deepracer-community/deepracer-simapp/tree/master/bundle). Download them all to `deep_ws/src/simulation` and create a `simulation.launch` file in `deep_ws/src/simulation/launch` folder. This launch file will include previous `gazebo.launch` and will pass a `world` argument.
 
 {% highlight xml %}
 <!-- deep_ws/src/simulation/launch/simulation.launch -->
@@ -102,3 +124,5 @@ $ export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:~/deep_ws/src/simulation/
 After path exports `simulation.launch` will launch a race track world. To launch other world - just change its name in file or pass it as argument in shell.
 
 ![race_track](/assets/race_track.png)
+
+<a href="{{next_post.url | escape}}">Next: {{ next_post.subtitle }}</a>
