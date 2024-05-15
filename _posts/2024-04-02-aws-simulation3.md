@@ -14,6 +14,7 @@ categories: aws
             <ul>
                <li><a href="#create-a-car-model">Create a car model</a></li>
                <li><a href="#load-car-model-to-gazebo-simulation">Load car model to Gazebo simulation</a></li>
+               <li><a href="#view-from-the-camera">View from the camera</a></li>
             </ul>
          </li>
       {% else %}
@@ -118,5 +119,24 @@ $ roslaunch simulation simulation.launch
 {% endhighlight %}
 and you will see a car on a race track, now we have a car model and need to somehow control it. 
 ![car model in world](/assets/car_track.png)
+
+## View from the camera
+
+The car camera images are being published to the `/camera/zed/rgb/image_rect_color` topic. 
+
+You can view the camera feed by using the `rqt_image_view`, just run:
+
+{% highlight shell %}
+$ rqt_image_view
+{% endhighlight %}
+
+A GUI will appear, and you can select the `/camera/zed/rgb/image_rect_color` topic from the dropdown menu to view the camera feed.
+
+Alternatively, you can use `image_view` with the following command:
+
+{% highlight shell %}
+$ rosrun image_view image_view image:=/camera/zed/rgb/image_rect_color
+{% endhighlight %}
+This will open a window displaying the live feed from the camera attached to your ROS agent in the Gazebo simulation.
 
 <a href="{{next_post.url | escape}}">Next: {{ next_post.subtitle }}</a>
