@@ -19,7 +19,7 @@ Self-driving car for the 'Autonomous Driving Competition'
 ## <ins>Automation:</ins>
 
 ### [telegram_channel_backup](https://github.com/CatUnderTheLeaf/telegram_channel_backup)
-Backup your telegram channel using GitHub actions
+{% include project.html image_path="/assets/telegram.png" title="GitHub Action workflow and Python scripts that back up your telegram channel to GitHub" category="telegram" %}
 
 ### [M.A.Ge](https://github.com/CatUnderTheLeaf/menuGenerator)
 Your automated menu generator
