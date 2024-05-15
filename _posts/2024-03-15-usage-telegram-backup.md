@@ -65,7 +65,10 @@ Follow these instructions and add `AUTH_TOKEN` and `BOT_TOKEN` secrets:
 
 ### 5. Create an action workflow
 
-- Copy code from [action_workflow_example](action_workflow_example.yml)
+- Open your (private) repository
+- Click on "Actions" tab
+- Click on the 'set up a workflow yourself' link
+- Copy code from `action_workflow_example` and paste to your new workflow:
 
 {% highlight yml %}
 # action_workflow_example.yml
@@ -110,11 +113,13 @@ jobs:
         run: python telegram_channel_backup/upload_to_github.py auth_token="$AUTH_TOKEN" repo=$CHANNEL_REPO branch=$BRANCH
 {% endhighlight %}
 - Replace `CHANNEL_REPO` and `BRANCH` placeholders with your names
-- Action is by default triggered on schedule at 23:30 UTC every day.
+- Commit changes
 
-If you want to change it, here is short informatio about cron syntax.
+> Action is by default triggered on schedule at 23:30 UTC every day.
 
-Cron syntax has five fields separated by a space, and each field represents a unit of time.
+> If you want to change it, here is short information about cron syntax.
+
+> Cron syntax has five fields separated by a space, and each field represents a unit of time.
 {% highlight shell %}
 ┌───────────── minute (0 - 59)
 │ ┌───────────── hour (0 - 23)
@@ -127,7 +132,7 @@ Cron syntax has five fields separated by a space, and each field represents a un
 * * * * *
 {% endhighlight %}
 
-You can use these operators in any of the five fields:
+> You can use these operators in any of the five fields:
 
 | Operator | Description | Example |
 | ---| --- | --- |
@@ -136,7 +141,7 @@ You can use these operators in any of the five fields:
 | -	| Range of values | 30 4-6 * * * runs at minute 30 of the 4th, 5th, and 6th hour |
 | /	| Step values | 20/15 * * * * runs every 15 minutes starting from minute 20 through 59 (minutes 20, 35, and 50) |
 
-You can use [crontab guru](https://crontab.guru/) to help generate your cron syntax and confirm what time it will run. To help you get started, there is also a list of [crontab guru examples](https://crontab.guru/examples.html).
+> You can use [crontab guru](https://crontab.guru/) to help generate your cron syntax and confirm what time it will run. To help you get started, there is also a list of [crontab guru examples](https://crontab.guru/examples.html).
 
 {% assign posts = site.categories["telegram"] | sort %}
 {% for post in posts %}
