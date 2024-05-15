@@ -137,3 +137,12 @@ You can use these operators in any of the five fields:
 | /	| Step values | 20/15 * * * * runs every 15 minutes starting from minute 20 through 59 (minutes 20, 35, and 50) |
 
 You can use [crontab guru](https://crontab.guru/) to help generate your cron syntax and confirm what time it will run. To help you get started, there is also a list of [crontab guru examples](https://crontab.guru/examples.html).
+
+{% assign posts = site.categories["telegram"] | sort %}
+{% for post in posts %}
+   {% if post.subtitle==page.subtitle%}
+      {% assign next_post = post.next %}         
+   {% endif %}
+{% endfor %}
+
+<a href="{{next_post.url | escape}}">Next: {{ next_post.subtitle }}</a>

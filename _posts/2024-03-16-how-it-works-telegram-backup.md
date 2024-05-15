@@ -50,3 +50,12 @@ If you already have a channel and there are already posts older than last 24 hou
    # replace placeholders for actual values
    $ python upload_to_github.py auth_token=$AUTH_TOKEN repo=$CHANNEL_REPO branch=$BRANCH
    {% endhighlight %}
+
+{% assign posts = site.categories["telegram"] | sort:"date" %}
+{% for post in posts %}
+   {% if post.subtitle==page.subtitle%}
+      {% assign previous = forloop.index0 | minus: 1 -%}             
+   {% endif %}
+{% endfor %}
+
+<a href="{{posts[previous].url | escape}}">Previous: {{ posts[previous].subtitle }}</a>
