@@ -5,11 +5,11 @@
 layout: page
 ---
 
+<!-- what is with that post-title??? -->
 ## <ins>Computer Vision:</ins>
 
 ### [getYourLook](https://github.com/CatUnderTheLeaf/getYourLook)
 {% include project.html image_path="/assets/gyl/haircut.png" title="Haircut recommendations based on the face shape" category="gyl" %}
-
 
 ## <ins>Robotics:</ins>
 

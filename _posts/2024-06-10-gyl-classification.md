@@ -70,7 +70,7 @@ test_ds = keras.utils.image_dataset_from_directory(
 
 ## Create model and use transfer learning
 
-I used the proposed in the [paper](https://lib.jucs.org/article/104490/) method - take EfficientNetV2S and fine tuned it.
+I used the proposed in the [paper](https://lib.jucs.org/article/104490/) method - took EfficientNetV2S and fine tuned it.
 
 EfficientNetV2S model architecture:
 
