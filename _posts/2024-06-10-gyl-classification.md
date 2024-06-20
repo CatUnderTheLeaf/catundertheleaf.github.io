@@ -7,7 +7,7 @@ categories: gyl
 
 ## Inspiration
 
-I have found an interesting paper ["Transfer Learning with EfficientNetV2S for Automatic Face Shape Classification"](https://lib.jucs.org/article/104490/) (28/2/2024) with a SOTA approach to classify face shapes.
+I have found an interesting paper[^1] with a SOTA approach to classify face shapes.
 
 Face shape classification has numerous applications in fields such as beauty industry, plastic surgery, security, entertainment industry, and others. For example, in the beauty industry, knowledge of a person’s face shape can be used to recommend makeup products and application techniques that will complement their features, to recommend hairstyles, glasses frames or hats.
 
@@ -15,7 +15,7 @@ So I decided to implement my classifier based on this paper.
 
 ## Preprocessing
 
-For training the neural network I used the same [dataset](https://www.kaggle.com/datasets/niten19/face-shape-dataset) as in [paper](https://lib.jucs.org/article/104490/), which consists of 4998 images of female celebrities categorized according to their face shape. There are five face shape classes: Heart(999 images), Oblong(999 images), Oval(1000 images), Round(1000 images) and Square (1000 images).
+For training the neural network I used the same dataset[^2] as in paper[^1], which consists of 4998 images of female celebrities categorized according to their face shape. There are five face shape classes: Heart(999 images), Oblong(999 images), Oval(1000 images), Round(1000 images) and Square (1000 images).
 
 The preprocessing method includes three stages:
 - __face detection__ - get a face area bounding box
@@ -28,11 +28,11 @@ The goal of this is to achieve better classification performance with eliminatio
 
 In the paper, face detection is performed using HOG and Linear SVM on all images in the dataset. But that face detector was unable to detect faces in some of the images.
 
-I used a [Multi-task CNN](https://github.com/ipazc/mtcnn) face detector that successfully detected faces in all images.
+I used a Multi-task CNN[^3] face detector that successfully detected faces in all images.
 
 ## Data augmentation
 
-The augmentation method increases the number of images in the dataset while making it more difficult for the network to learn, because none of the images are completely standard. With OpenCV I implemented all variants from the [paper](https://lib.jucs.org/article/104490/):
+The augmentation method increases the number of images in the dataset while making it more difficult for the network to learn, because none of the images are completely standard. With OpenCV I implemented all variants from the paper[^1]:
 - image rotation for a value between -50◦ and 30◦
 - adding Gaussian noise to an image
 - horizontal image mirroring
@@ -70,7 +70,7 @@ test_ds = keras.utils.image_dataset_from_directory(
 
 ## Create model and use transfer learning
 
-I used the proposed in the [paper](https://lib.jucs.org/article/104490/) method - took EfficientNetV2S and fine tuned it.
+I used the proposed in the paper[^1] method - took EfficientNetV2S and fine tuned it.
 
 EfficientNetV2S model architecture:
 
@@ -104,3 +104,9 @@ I trained this model in three stages:
 ## Prediction
 
 ![Model prediction](/assets/gyl/prediction.png)
+
+[^1]: [Grd P, Tomičić I, Barčić E (2024) Transfer Learning with EfficientNetV2S for Automatic Face Shape Classification. JUCS - Journal of Universal Computer Science 30(2): 153-178.](https://doi.org/10.3897/jucs.104490)
+
+[^2]: [N. Lama. (2023) Face shape dataset.](https://www.kaggle.com/datasets/niten19/face-shape-dataset)
+
+[^3]: [(Implementation)](https://github.com/ipazc/mtcnn) Zhang, K., Zhang, Z., Li, Z., and Qiao, Y. (2016). Joint face detection and alignment using multitask cascaded convolutional networks. IEEE Signal Processing Letters, 23(10):1499–1503.
