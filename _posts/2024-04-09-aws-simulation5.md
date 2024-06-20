@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "AWS DeepRacer simulation. Part 5 - Teleoperation"
-subtitle: "Part 5 - Teleoperation"
+title: "AWS DeepRacer simulation: Teleoperation"
+subtitle: "Teleoperation"
 categories: aws
 ---
 ## Roadmap

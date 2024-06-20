@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "AWS DeepRacer simulation. Part 1 - Setup"
-subtitle: "Part 1 - Setup"
+title: "AWS DeepRacer simulation: Setup"
+subtitle: "Setup"
 categories: aws
 ---
 ## Roadmap

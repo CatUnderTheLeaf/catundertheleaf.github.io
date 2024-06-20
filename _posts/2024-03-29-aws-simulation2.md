@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "AWS DeepRacer simulation. Part 2 - Launch race track in Gazebo"
-subtitle: "Part 2 - Launch race track in Gazebo"
+title: "AWS DeepRacer simulation: Launch race track in Gazebo"
+subtitle: "Launch race track in Gazebo"
 categories: aws
 ---
 ## Roadmap

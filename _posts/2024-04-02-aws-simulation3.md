@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "AWS DeepRacer simulation. Part 3 - Car model"
-subtitle: "Part 3 - Car model"
+title: "AWS DeepRacer simulation: Car model"
+subtitle: "Car model"
 categories: aws
 ---
 ## Roadmap
