@@ -25,7 +25,7 @@ categories: gyl
 
 ## MVP
 
-The idea was to make a Minimal Viable Product - a simple WebApp where user can take/upload photo and recieve haircut recommendations. To make such a product I had to search for a solution that meets my requirements:
+The idea was to make a Minimal Viable Product - a simple WebApp where user can take/upload photo and receive haircut recommendations. To make such a product I had to search for a solution that meets my requirements:
 - fast to make a working app
 - zero cost
 - easy to deploy and maintain 
