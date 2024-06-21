@@ -5,6 +5,29 @@ subtitle: "Face shape classification"
 categories: gyl
 ---
 
+## Roadmap
+{% assign posts = site.categories["gyl"] | sort %}
+<ul>
+    {% for post in posts %}
+      {% if post.subtitle==page.subtitle%}
+      {% assign next_post = post.next %}
+         <li>{{ post.subtitle }}
+            <ul>
+               <li><a href="#inspiration">Inspiration</a></li>
+               <li><a href="#preprocessing">Preprocessing</a></li>
+               <li><a href="#data-augmentation">Data augmentation</a></li>
+               <li><a href="#load-dataset">Load dataset</a></li>
+               <li><a href="#create-model-and-use-transfer-learning">Create model and use transfer learning</a></li>
+               <li><a href="#model-fitting-and-fine-tuning">Model fitting and fine-tuning</a></li>
+               <li><a href="#prediction">Prediction</a></li>
+            </ul>
+         </li>
+      {% else %}
+         <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
+      {% endif %}
+    {% endfor %}
+</ul>
+
 ## Inspiration
 
 I have found an interesting paper[^1] with a SOTA approach to classify face shapes.
@@ -104,9 +127,13 @@ I trained this model in three stages:
 ## Prediction
 
 ![Model prediction](/assets/gyl/prediction.png)
+    
+Then I used this trained model to make a MVP : <a href="{{next_post.url | escape}}">{{ next_post.subtitle }}</a>
 
+---
 [^1]: [Grd P, Tomičić I, Barčić E (2024) Transfer Learning with EfficientNetV2S for Automatic Face Shape Classification. JUCS - Journal of Universal Computer Science 30(2): 153-178.](https://doi.org/10.3897/jucs.104490)
 
 [^2]: [N. Lama. (2023) Face shape dataset.](https://www.kaggle.com/datasets/niten19/face-shape-dataset)
 
 [^3]: [(Implementation)](https://github.com/ipazc/mtcnn) Zhang, K., Zhang, Z., Li, Z., and Qiao, Y. (2016). Joint face detection and alignment using multitask cascaded convolutional networks. IEEE Signal Processing Letters, 23(10):1499–1503.
+
