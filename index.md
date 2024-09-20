@@ -8,23 +8,23 @@ layout: page
 <!-- what is with that post-title??? -->
 ## <ins>Computer Vision:</ins>
 
-### [getYourLook](https://github.com/CatUnderTheLeaf/getYourLook)
+#### [getYourLook](https://github.com/CatUnderTheLeaf/getYourLook)
 {% include project.html image_path="/assets/gyl/haircutrec.png" title="Haircut recommendations based on the face shape" category="gyl" %}
 
 ## <ins>Robotics:</ins>
 
-### [deepRacerSim](https://github.com/CatUnderTheLeaf/deepRacerSim)
+#### [deepRacerSim](https://github.com/CatUnderTheLeaf/deepRacerSim)
 {% include project.html image_path="/assets/deepRacerSim/teleoperation.png" title="Simulation for an AWS DeepRacer car" category="aws" %}
 
-### [rosRoboCar](https://github.com/CatUnderTheLeaf/rosRoboCar)
+#### [rosRoboCar](https://github.com/CatUnderTheLeaf/rosRoboCar)
 {% include project.html image_path="/assets/rosRoboCar/donkey2.png" title="Self-driving car for the 'Autonomous Driving Competition'" category="donkey" %}
 
 ## <ins>Automation:</ins>
 
-### [telegram_channel_backup](https://github.com/CatUnderTheLeaf/telegram_channel_backup)
+#### [telegram_channel_backup](https://github.com/CatUnderTheLeaf/telegram_channel_backup)
 {% include project.html image_path="/assets/telegram.png" title="GitHub Action workflow and Python scripts that back up your telegram channel to GitHub" category="telegram" %}
 
-### [M.A.Ge](https://github.com/CatUnderTheLeaf/menuGenerator)
+#### [M.A.Ge](https://github.com/CatUnderTheLeaf/menuGenerator)
 
 {% include project.html image_path="" title="An Android app written in python to generate menu for 1 day/week/month." category="mage" %}
 
