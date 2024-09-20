@@ -14,10 +14,10 @@ layout: page
 ## <ins>Robotics:</ins>
 
 ### [deepRacerSim](https://github.com/CatUnderTheLeaf/deepRacerSim)
-{% include project.html image_path="/assets/teleoperation.png" title="Simulation for an AWS DeepRacer car" category="aws" %}
+{% include project.html image_path="/assets/deepRacerSim/teleoperation.png" title="Simulation for an AWS DeepRacer car" category="aws" %}
 
 ### [rosRoboCar](https://github.com/CatUnderTheLeaf/rosRoboCar)
-Self-driving car for the 'Autonomous Driving Competition'
+{% include project.html image_path="/assets/rosRoboCar/donkey2.png" title="Self-driving car for the 'Autonomous Driving Competition'" category="donkey" %}
 
 ## <ins>Automation:</ins>
 
