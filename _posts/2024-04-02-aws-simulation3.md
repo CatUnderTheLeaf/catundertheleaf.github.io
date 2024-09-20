@@ -36,11 +36,11 @@ I took car model from [aws-deepracer](https://github.com/aws-deepracer/aws-deepr
 Create a package with name `deepracer_car`. Here we will gather all code for car model and its control.
 
 {% highlight shell %}
-$ cd ~/deep_ws/src
+cd ~/deep_ws/src
 # create package with name deepracer_car and dependencies
-$ catkin_create_pkg deepracer_car gazebo_ros ackermann_msgs std_msgs rospy
-$ cd ../
-$ catkin_make
+catkin_create_pkg deepracer_car gazebo_ros ackermann_msgs std_msgs rospy
+cd ../
+catkin_make
 {% endhighlight %}
 
 > After every `catkin_make` be sure to source your workspace!!!
@@ -79,10 +79,10 @@ To view this model we will use RVIZ - ROS 3D Robot Visualizer. Create `rviz.laun
 
 Now run 
 {% highlight shell %}
-$ roslaunch deepracer_car rviz.launch
+roslaunch deepracer_car rviz.launch
 {% endhighlight %}
 and you will see a car model without visual meshes
-![car model](/assets/rviz_model.png)
+![car model](/assets/deepRacerSim/rviz_model.png)
 
 ## Load car model to Gazebo simulation
 
@@ -115,10 +115,10 @@ And include this file in `gazebo.launch`:
 
 Now run
 {% highlight shell %}
-$ roslaunch simulation simulation.launch
+roslaunch simulation simulation.launch
 {% endhighlight %}
 and you will see a car on a race track, now we have a car model and need to somehow control it. 
-![car model in world](/assets/car_track.png)
+![car model in world](/assets/deepRacerSim/car_track.png)
 
 ## View from the camera
 
@@ -127,7 +127,7 @@ The car camera images are being published to the `/camera/zed/rgb/image_rect_col
 You can view the camera feed by using the `rqt_image_view`, just run:
 
 {% highlight shell %}
-$ rqt_image_view
+rqt_image_view
 {% endhighlight %}
 
 A GUI will appear, and you can select the `/camera/zed/rgb/image_rect_color` topic from the dropdown menu to view the camera feed.
@@ -135,7 +135,7 @@ A GUI will appear, and you can select the `/camera/zed/rgb/image_rect_color` top
 Alternatively, you can use `image_view` with the following command:
 
 {% highlight shell %}
-$ rosrun image_view image_view image:=/camera/zed/rgb/image_rect_color
+rosrun image_view image_view image:=/camera/zed/rgb/image_rect_color
 {% endhighlight %}
 This will open a window displaying the live feed from the camera attached to your ROS agent in the Gazebo simulation.
 

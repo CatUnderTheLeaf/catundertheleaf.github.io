@@ -35,33 +35,33 @@ Sounds easy. But how to do this with less hassle and without registering of addi
 
 Just follow the instructions. Be sure to grant repository read-and-write permissions for `actions` and `contents`. You can also restrict permissions to only this repository.
 
-1. Verify your email address, if it hasn't been verified yet.
-2. In the upper-right corner of any page, click your profile photo, then click Settings.
-3. In the left sidebar, click  Developer settings.
-4. In the left sidebar, under  Personal access tokens, click Fine-grained tokens.
-5. Click Generate new token.
-6. Under Token name, enter a name for the token.
-7. Under Expiration, select an expiration for the token.
-8. Optionally, under Description, add a note to describe the purpose of the token.
-9. Under Resource owner, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to fine-grained personal access tokens. For more information, see "Setting a personal access token policy for your organization."
-10. Optionally, if the resource owner is an organization that requires approval for fine-grained personal access tokens, below the resource owner, in the box, enter a justification for the request.
-11. Under Repository access, select which repositories you want the token to access. You should choose the minimal repository access that meets your needs. Tokens always include read-only access to all public repositories on GitHub.
-12. If you selected Only select repositories in the previous step, under the Selected repositories dropdown, select the repositories that you want the token to access.
-13. Under Permissions, select which permissions to grant the token. Depending on which resource owner and which repository access you specified, there are repository, organization, and account permissions. You should choose the minimal permissions necessary for your needs.
-14. Click Generate token.
+- Verify your email address, if it hasn't been verified yet.
+- In the upper-right corner of any page, click your profile photo, then click Settings.
+- In the left sidebar, click  Developer settings.
+- In the left sidebar, under  Personal access tokens, click Fine-grained tokens.
+- Click Generate new token.
+- Under Token name, enter a name for the token.
+- Under Expiration, select an expiration for the token.
+- Optionally, under Description, add a note to describe the purpose of the token.
+- Under Resource owner, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to fine-grained personal access tokens. For more information, see "Setting a personal access token policy for your organization."
+- Optionally, if the resource owner is an organization that requires approval for fine-grained personal access tokens, below the resource owner, in the box, enter a justification for the request.
+- Under Repository access, select which repositories you want the token to access. You should choose the minimal repository access that meets your needs. Tokens always include read-only access to all public repositories on GitHub.
+- If you selected Only select repositories in the previous step, under the Selected repositories dropdown, select the repositories that you want the token to access.
+- Under Permissions, select which permissions to grant the token. Depending on which resource owner and which repository access you specified, there are repository, organization, and account permissions. You should choose the minimal permissions necessary for your needs.
+- Click Generate token.
 
 ### 4. Add `BOT` and `AUTH` tokens to your channel backup repository as secrets
 
 Follow these instructions and add `AUTH_TOKEN` and `BOT_TOKEN` secrets:
 
-1. On GitHub.com, navigate to the main page of the repository.
-2. Under your repository name, click  Settings. If you cannot see the "Settings" tab, select the  dropdown menu, then click Settings.
-3. In the "Security" section of the sidebar, select  Secrets and variables, then click Actions.
-4. Click the Secrets tab.
-5. Click New repository secret.
-6. In the Name field, type a name for your secret.
-7. In the Secret field, enter the value for your secret.
-8. Click Add secret.
+- On GitHub.com, navigate to the main page of the repository.
+- Under your repository name, click  Settings. If you cannot see the "Settings" tab, select the  dropdown menu, then click Settings.
+- In the "Security" section of the sidebar, select  Secrets and variables, then click Actions.
+- Click the Secrets tab.
+- Click New repository secret.
+- In the Name field, type a name for your secret.
+- In the Secret field, enter the value for your secret.
+- Click Add secret.
 
 ### 5. Create an action workflow
 

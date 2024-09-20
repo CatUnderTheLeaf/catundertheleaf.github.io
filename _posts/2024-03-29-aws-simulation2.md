@@ -38,24 +38,24 @@ categories: aws
 The very first step is to create a catkin workspace if it not already exists.
 
 {% highlight shell %}
-$ mkdir -p ~/deep_ws/src
-$ cd ~/deep_ws/
-$ catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
+mkdir -p ~/deep_ws/src
+cd ~/deep_ws/
+catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
 {% endhighlight %}
 
 Create a package with name `simulation`. Here we will gather all code for launching Gazebo and loading race track worlds.
 
 {% highlight shell %}
-$ cd ~/deep_ws/src
+cd ~/deep_ws/src
 # create package with name 'simulation' and dependency on 'gazebo_ros'
-$ catkin_create_pkg simulation gazebo_ros
-$ cd ../
-$ catkin_make
+catkin_create_pkg simulation gazebo_ros
+cd ../
+catkin_make
 {% endhighlight %}
 
 > After every `catkin_make` be sure to source your workspace!!!
 {% highlight shell %}
-$ . ~/deep_ws/devel/setup.bash
+. ~/deep_ws/devel/setup.bash
 {% endhighlight %}
 
 Gazebo in ROS has 2 nodes: `gzserver` and `gzclient`. As you remember in ROS to launch a node(script) you should first launch ROS MASTER. In order to launch both Gazebo nodes you should:
@@ -77,12 +77,12 @@ I prefer `launch` files. They make running ROS code so much easier. Go to `deep_
 Now we can launch empty world in Gazebo
 
 {% highlight shell %}
-$ cd ~/deep_ws
-$ source devel/setup.bash
-$ roslaunch simulation gazebo.launch
+cd ~/deep_ws
+source devel/setup.bash
+roslaunch simulation gazebo.launch
 {% endhighlight %}
 
-![empty world](/assets/empty_world.png)
+![empty world](/assets/deepRacerSim/empty_world.png)
 
 That was not so difficult. Now lets load a race track world. 
 
@@ -103,7 +103,7 @@ For this task you need folders `meshes`, `models`, `worlds` and `routes` from [d
 
 Similarly run it from `deep_ws` folder with 
 {% highlight shell %}
-$ roslaunch simulation simulation.launch
+roslaunch simulation simulation.launch
 {% endhighlight %}
 
 But.... wait. There is a warning:
@@ -115,14 +115,14 @@ But.... wait. There is a warning:
 Ok, it takes more than a few seconds and it seems to look for models in internet not in our simulation folder. 
 __Important:__ To avoid this you need to:
 {% highlight shell %}
-$ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/deep_ws/src/simulation/
-$ export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:~/deep_ws/src/simulation/
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/deep_ws/src/simulation/
+export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:~/deep_ws/src/simulation/
 {% endhighlight %}
 
 > Yes, there will be another warning about folder not being a model folder etc., but it can be ignored
 
 After path exports `simulation.launch` will launch a race track world. To launch other world - just change its name in file or pass it as argument in shell.
 
-![race_track](/assets/race_track.png)
+![race_track](/assets/deepRacerSim/race_track.png)
 
 <a href="{{next_post.url | escape}}">Next: {{ next_post.subtitle }}</a>

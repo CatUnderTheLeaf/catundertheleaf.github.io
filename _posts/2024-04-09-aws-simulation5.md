@@ -35,11 +35,11 @@ So, you guess it right, now we will write an improved teleoperation package for 
 
 Create new package in `deep_ws/src` folder
 {% highlight shell %}
-$ cd ~/deep_ws/src
+cd ~/deep_ws/src
 # create package with name 'teleop_ackermann' and its dependencies
-$ catkin_create_pkg teleop_ackermann rospy ackermann_msgs joy
-$ cd ../
-$ catkin_make
+catkin_create_pkg teleop_ackermann rospy ackermann_msgs joy
+cd ../
+catkin_make
 {% endhighlight %}
 
 > After `catkin_make` be sure to source your workspace!!!
@@ -197,17 +197,17 @@ Create a `key_teleop.launch` in `launch` folder
 
 Now you can launch simulation and teleoperation
 {% highlight shell %}
-$ cd ~/deep_ws/src
-$ . ~/deep_ws/devel/setup.bash
-$ roslaunch simulation simulation.launch
+cd ~/deep_ws/src
+. ~/deep_ws/devel/setup.bash
+roslaunch simulation simulation.launch
 
 # in another terminal window
-$ cd ~/deep_ws/src
-$ . ~/deep_ws/devel/setup.bash
-$ roslaunch teleop_ackermann key_teleop.launch
+cd ~/deep_ws/src
+. ~/deep_ws/devel/setup.bash
+roslaunch teleop_ackermann key_teleop.launch
 {% endhighlight %}
 
-![teleoperation](/assets/teleoperation.png)
+![teleoperation](/assets/deepRacerSim/teleoperation.png)
 
 ## Joy teleoperation
 
@@ -322,13 +322,13 @@ align_button: 6
 
 Install ROS nodes and drivers for a joystick
 {% highlight shell %}
-$ sudo apt-get install ros-noetic-joy
+sudo apt-get install ros-noetic-joy
 {% endhighlight %}
 
 > In order to use a joystick, it must have read and write permissions.
 > You can grant such permissions by executing the following command:
 {% highlight shell %}
-$ sudo chmod a+rw /dev/input/js0
+sudo chmod a+rw /dev/input/js0
 {% endhighlight %}
 
 Create a `joy_teleop.launch` in `launch` folder
@@ -371,12 +371,12 @@ Create a `joy_teleop.launch` in `launch` folder
 Now you can launch simulation and teleoperation
 {% highlight shell %}
 # in every terminal window source your workspace
-$ cd ~/deep_ws/src
-$ . ~/deep_ws/devel/setup.bash
-$ roslaunch simulation simulation.launch
+cd ~/deep_ws/src
+. ~/deep_ws/devel/setup.bash
+roslaunch simulation simulation.launch
 
 # in another terminal window
-$ cd ~/deep_ws/src
-$ . ~/deep_ws/devel/setup.bash
-$ roslaunch teleop_ackermann joy_teleop.launch
+cd ~/deep_ws/src
+. ~/deep_ws/devel/setup.bash
+roslaunch teleop_ackermann joy_teleop.launch
 {% endhighlight %}

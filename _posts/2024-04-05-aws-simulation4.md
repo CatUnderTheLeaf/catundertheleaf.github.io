@@ -28,7 +28,7 @@ categories: aws
 
 The most popular and easiest to implement controller. Transforms angular velocity _w_ and linear velocity _v_ to wheel velocities _v<sub>l</sub>_ and _v<sub>r</sub>_. Ideal for small robots and robot vacuums.
 
-![diff-drive](/assets/dif_model.png)
+![diff-drive](/assets/deepRacerSim/dif_model.png)
 
 It already has [implementation](https://wiki.ros.org/diff_drive_controller?distro=noetic) in ROS1 and Gazebo, you just need to add `libdiffdrive_plugin.so`, set distance between wheels, wheel radius, what URDF joints to use, etc. Then send _v_ and _w_ through `cmd_vel` topic and that's pretty much all.
 
@@ -44,7 +44,7 @@ But..... Our car model has six continuous joints instead of two:
 
 This controller is good for bicycles and cars. It should transform speed _s_ and steering angle of the virtual center wheel _φ_, like on a tricycle, to two steering and two wheel commands.
 
-![ackermann-drive](/assets/model.png)
+![ackermann-drive](/assets/deepRacerSim/model.png)
 
 ROS1 has an [implementation](https://wiki.ros.org/ackermann_steering_controller) of this controller, but it:
 - uses `cmd_vel` topic with `Twist` message instead of `AckermannDrive`
@@ -158,7 +158,7 @@ Fantastic. Now include this file to `racecar.launch`
 {% endhighlight %}
 and we can start simulation with control
 {% highlight shell %}
-$ roslaunch simulation simulation.launch
+roslaunch simulation simulation.launch
 {% endhighlight %}
 and even send commands to each joint
 {% highlight shell %}

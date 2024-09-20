@@ -44,37 +44,37 @@ But what if you want to gain more control of your car? Or you want to somehow in
 If you want just to run the simulation you can clone my repository and run it with Docker.
 {% highlight shell %}
 # Download this repository
-$ git clone https://github.com/CatUnderTheLeaf/deepRacerSim.git
+git clone https://github.com/CatUnderTheLeaf/deepRacerSim.git
 
 # change dir to this repository
-$ cd deepRacerSim
+cd deepRacerSim
 
 # Build docker image with
-$ docker build -f deepRacerSim.Dockerfile -t deep-simulator .
+docker build -f deepRacerSim.Dockerfile -t deep-simulator .
 
 # change directory
-$ cd deepRacerSim/deep_ws
+cd deepRacerSim/deep_ws
 
 # launch a Docker container
-$ ./launch_docker.sh
+./launch_docker.sh
 
 # launch simulation
-$ roslaunch simulation simulation.launch
+roslaunch simulation simulation.launch
 {% endhighlight %}
 
 To control a car in launch another terminal
 {% highlight shell %}
 # change directory
-$ cd deepRacerSim/deep_ws
+cd deepRacerSim/deep_ws
 
 # launch a Docker container
-$ ./launch_docker.sh
+./launch_docker.sh
 
 # launch keyboard teleoperation
-$ roslaunch teleop_ackermann key_teleop.launch
+roslaunch teleop_ackermann key_teleop.launch
 
 # or launch joy teleoperation
-$ roslaunch teleop_ackermann joy_teleop.launch
+roslaunch teleop_ackermann joy_teleop.launch
 {% endhighlight %}
 
 If you don't want to use Docker, then read instructions on [GitHub](https://github.com/CatUnderTheLeaf/deepRacerSim).
@@ -111,7 +111,7 @@ As can be seen the last configuration is the right option to simulate and train 
 - Update/Install Git and Python3
 {% highlight shell %}
 # Install Git and Python3 if not installed
-$ apt-get update && apt-get install -y git python3-pip
+apt-get update && apt-get install -y git python3-pip
 {% endhighlight %}
 - Install [Gazebo](https://classic.gazebosim.org/tutorials?tut=install_ubuntu&cat=install) for simulation
 - Install [gazebo-ros-pkgs and gazebo-ros-control](https://classic.gazebosim.org/tutorials?tut=ros_installing)
@@ -119,7 +119,7 @@ $ apt-get update && apt-get install -y git python3-pip
 {% highlight shell %}
 # or just add it to ~/.bashrc with
 # echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-$ source /opt/ros/noetic/setup.bash
+source /opt/ros/noetic/setup.bash
 {% endhighlight %}
 
 <a href="{{next_post.url | escape}}">Next: {{ next_post.subtitle }}</a>

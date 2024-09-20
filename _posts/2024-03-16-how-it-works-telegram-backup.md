@@ -5,7 +5,7 @@ subtitle: "How it works"
 categories: telegram
 ---
 
-### Action workflow
+## Action workflow
 
 - action is triggered on schedule at 23:30 UTC every day
 - installs `python-telegram-bot` and `PyGithub`
@@ -30,25 +30,25 @@ If you already have a channel and there are already posts older than last 24 hou
 
 - Checkout this repository and install necessary dependancies:
    {% highlight shell %}
-   $ git clone https://github.com/CatUnderTheLeaf/telegram_channel_backup.git
+   git clone https://github.com/CatUnderTheLeaf/telegram_channel_backup.git
    
-   $ pip install PyGithub
-   $ pip install 'telegraph[aio]'
-   $ pip install beautifulsoup4
+   pip install PyGithub
+   pip install 'telegraph[aio]'
+   pip install beautifulsoup4
    
    # create folder for old posts in json format
-   $ cd telegram_channel_backup
-   $ mkdir json_dump
+   cd telegram_channel_backup
+   mkdir json_dump
    {% endhighlight %}
 - Go to Telegram Desktop, open your channel, click on three dots sign in the upper right corner and select `export chat history`, select `JSON` as format and `json_dump` as path
 - Convert posts and upload them to your repository:
    {% highlight shell %}
    # convert json format to posts in the `YYYY-MM-DD-postId.md` format in `_posts` folder
    # json_dump is a folder with dumped history and images
-   $ python backup_telegram_channel_history.py dump_dir=json_dump
+   python backup_telegram_channel_history.py dump_dir=json_dump
    
    # replace placeholders for actual values
-   $ python upload_to_github.py auth_token=$AUTH_TOKEN repo=$CHANNEL_REPO branch=$BRANCH
+   python upload_to_github.py auth_token=$AUTH_TOKEN repo=$CHANNEL_REPO branch=$BRANCH
    {% endhighlight %}
 
 {% assign posts = site.categories["telegram"] | sort:"date" %}
