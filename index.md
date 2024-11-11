@@ -63,8 +63,9 @@ layout: page
 {% include project.html 
     project_name = "M.A.Ge"
     project_link = "https://github.com/CatUnderTheLeaf/menuGenerator"
-    image_path="" 
+    image_path="/assets/mage/ic_launcher.png" 
     title="An Android app written in python to generate menu for 1 day/week/month." 
+    app_link = "https://www.amazon.de/gp/product/B09YYXN35D"
     category="mage" 
 %}
 
