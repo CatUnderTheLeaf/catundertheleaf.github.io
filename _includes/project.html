@@ -1,8 +1,11 @@
+<div style="margin-left: 50px;">
+<h4><a href="{{include.project_link}}">{{include.project_name}}</a></h4>    
 <div style="clear: both; min-height: 100px; overflow: hidden;">
     <div style="float: left; max-width: 50%; padding-right: 30px;">
       <img src="{{ include.image_path }}" alt="">
     </div>
     <div>      
+        <h5><a href="{{ include.app_link }}">{{ include.app_link | markdownify }}</a></h5>
         <h6>{{ include.title | markdownify }}</h6>
         {% assign posts = site.categories[include.category] %}
         {%- if posts -%}
@@ -16,3 +19,4 @@
     </div>
 </div>
 <br />
+</div>
