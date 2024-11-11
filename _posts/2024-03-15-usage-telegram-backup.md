@@ -4,6 +4,29 @@ title: "telegram_channel_backup. How to use"
 subtitle: "How to use"
 categories: telegram
 ---
+## Roadmap
+{% assign posts = site.categories["telegram"] | sort %}
+<ul>
+    {% for post in posts %}
+      {% if post.subtitle==page.subtitle%}
+      {% assign next_post = post.next %}
+         <li>{{ post.subtitle }}
+            <ul>
+               <li><a href="#idea">Idea</a></li>
+               <li><a href="#1-create-a-telegram-bot-and-get-its-token">1. Create a Telegram bot and get its token</a></li>
+               <li><a href="#2-create-a-private-repository-for-channel-backup">2. Create a (private) repository for channel backup</a></li>
+               <li><a href="#3-create-a-personal-access-token-lets-call-it-auth">3. Create a personal access token (lets call it `AUTH`)</a></li>
+               <li><a href="#4-add-bot-and-auth-tokens-to-your-channel-backup-repository-as-secrets">4. Add `BOT` and `AUTH` tokens to your channel backup repository as secrets</a></li>
+               <li><a href="#5-create-an-action-workflow">5. Create an action workflow</a></li>
+            </ul>
+         </li>
+      {% else %}
+         <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
+      {% endif %}
+    {% endfor %}
+</ul>
+
+## Idea
 
 The idea is very simple: you have a Telegram channel and just want to automatically backup your posts to GitHub.
 

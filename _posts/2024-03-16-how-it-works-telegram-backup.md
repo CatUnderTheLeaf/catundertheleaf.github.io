@@ -4,6 +4,25 @@ title: "telegram_channel_backup. How it works"
 subtitle: "How it works"
 categories: telegram
 ---
+## Roadmap
+{% assign posts = site.categories["telegram"] | sort %}
+<ul>
+    {% for post in posts %}
+      {% if post.subtitle==page.subtitle%}
+      {% assign next_post = post.next %}
+         <li>{{ post.subtitle }}
+            <ul>
+               <li><a href="#action-workflow">Action workflow</a></li>
+               <li><a href="#backup_telegram_channelpy">backup_telegram_channel.py</a></li>
+               <li><a href="#upload_to_githubpy">upload_to_github.py</a></li>
+               <li><a href="#optional-not-used-in-the-action-workflow-backup_telegram_channel_historypy">backup_telegram_channel_history.py</a></li>
+            </ul>
+         </li>
+      {% else %}
+         <li><a href="{{ post.url }}">{{ post.subtitle }}</a></li>
+      {% endif %}
+    {% endfor %}
+</ul>
 
 ## Action workflow
 
@@ -57,5 +76,3 @@ If you already have a channel and there are already posts older than last 24 hou
       {% assign previous = forloop.index0 | minus: 1 -%}             
    {% endif %}
 {% endfor %}
-
-<a href="{{posts[previous].url | escape}}">Previous: {{ posts[previous].subtitle }}</a>
