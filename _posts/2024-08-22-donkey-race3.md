@@ -12,7 +12,7 @@ categories: donkey
       {% assign next_post = post.next %}
          <li>{{ post.subtitle }}
             <ul>
-               <li><a href="#architecture">Architecture</a></li>
+               <li><a href="#ros-graph">ROS Graph</a></li>
             </ul>
          </li>
       {% else %}
@@ -21,7 +21,7 @@ categories: donkey
     {% endfor %}
 </ul>
 
-## Architecture
+## ROS Graph
 
 ![app architecture](/assets/rosRoboCar/architecture.png)
 *diagram was made with [excalidraw.com](https://excalidraw.com/)*

@@ -13,7 +13,7 @@ categories: gyl
          <li>{{ post.subtitle }}
             <ul>
                <li><a href="#mvp">MVP</a></li>
-               <li><a href="#architecture">Architecture</a></li>
+               <li><a href="#data-flow">Data flow</a></li>
                <li><a href="#future-improvements">Future improvements</a></li>
             </ul>
          </li>
@@ -40,7 +40,7 @@ The idea was to make a Minimal Viable Product - a simple WebApp where user can t
 
 Current WebApp is available at [getyourlook.streamlit.app](https://getyourlook.streamlit.app/)
 
-## Architecture
+## Data flow
 
 ![app architecture](/assets/gyl/architecture.png)
 *diagram was made with [excalidraw.com](https://excalidraw.com/)*
