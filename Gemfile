@@ -15,11 +15,14 @@ gem "minima", :github => 'jekyll/minima'
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
-gem "github-pages", "~> 227", group: :jekyll_plugins
+# uncomment for publishing on Github
+# but leave commented on the pc
+# gem "github-pages", "~> 227", group: :jekyll_plugins
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-remote-theme"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
